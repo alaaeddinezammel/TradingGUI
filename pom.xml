@@ -140,6 +140,10 @@
             <artifactId>spring-cloud-starter-zuul</artifactId>
             <version>1.2.3.RELEASE</version>
         </dependency -->
+        <dependency>
+  <groupId>org.postgresql</groupId>
+  <artifactId>postgresql</artifactId>
+</dependency>
   	<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
