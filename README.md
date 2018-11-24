@@ -14,14 +14,14 @@ to try on heroku : open https://peaceful-oasis-51217.herokuapp.com/#/login  and 
 some screens:
 Login:
 
-![alt text](https://raw.githubusercontent.com/alaaeddinezammel/TradingGUI/master/cap1.PNG)
+![alt text](https://raw.githubusercontent.com/alaaeddinezammel/TradingGUI/master/Cap1.PNG)
+
+
+Dashboard:
+
+![alt text](https://raw.githubusercontent.com/alaaeddinezammel/TradingGUI/master/Cap2.PNG)
 
 
 Orders view:
 
-![alt text](https://raw.githubusercontent.com/alaaeddinezammel/TradingGUI/master/cap2.PNG)
-
-
-
-Orders details:
-![alt text](https://raw.githubusercontent.com/alaaeddinezammel/TradingGUI/master/cap3.PNG)
+![alt text](https://raw.githubusercontent.com/alaaeddinezammel/TradingGUI/master/Cap3.PNG)
