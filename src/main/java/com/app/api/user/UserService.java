@@ -28,27 +28,27 @@ public class UserService {
 	}
 
 
-	public User getLoggedInUser() {
+	public Users getLoggedInUser() {
 		String loggedInUserId = this.getLoggedInUserId();
-		User user = this.getUserInfoByUserId(loggedInUserId);
-		return user;
+		Users users = this.getUserInfoByUserId(loggedInUserId);
+		return users;
 	}
 
-	public User getUserInfoByUserId(String userId){
-			User user = this.userRepo.findOneByUserId(userId).orElseGet( () -> new User());
-			return user;
+	public Users getUserInfoByUserId(String userId){
+			Users users = this.userRepo.findOneByUserId(userId).orElseGet( () -> new Users());
+			return users;
 	}
 
-	public boolean insertOrSaveUser(User user) {
-		this.userRepo.save(user);
+	public boolean insertOrSaveUser(Users users) {
+		this.userRepo.save(users);
 		return true;
 	}
 
-	public boolean addNewUser(User user) {
-		User newUser = this.getUserInfoByUserId(user.getUserId());
+	public boolean addNewUser(Users users) {
+		Users newUser = this.getUserInfoByUserId(users.getUserId());
 		if (newUser.getUserId().equals("new")){
 			// This means the username is not found therfore its is returning a default value of "new"
-			return this.insertOrSaveUser(user);
+			return this.insertOrSaveUser(users);
 		}
 		else{
 			return false;

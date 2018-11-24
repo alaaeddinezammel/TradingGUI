@@ -2,23 +2,23 @@ package com.app.identity;
 
 import org.springframework.security.core.authority.AuthorityUtils;
 import com.app.model.user.Role;
-import com.app.model.user.User;
+import com.app.model.user.Users;
 
 public class TokenUser extends org.springframework.security.core.userdetails.User {
-    private User user;
+    private Users users;
 
     //For returning a normal user
-    public TokenUser(User user) {
-        super( user.getUserId(), user.getPassword(), AuthorityUtils.createAuthorityList(user.getRole().toString()  )  );
+    public TokenUser(Users users) {
+        super( users.getUserId(), users.getPassword(), AuthorityUtils.createAuthorityList(users.getRole().toString()  )  );
         //super(user.getUserName(), user.getPassword(), true, true, true, true,  AuthorityUtils.createAuthorityList(user.getRole().toString()));
-        this.user = user;
+        this.users = users;
     }
 
-    public User getUser() {
-        return user;
+    public Users getUser() {
+        return users;
     }
 
     public String getRole() {
-        return user.getRole().toString();
+        return users.getRole().toString();
     }
 }

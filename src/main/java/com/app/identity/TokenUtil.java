@@ -8,7 +8,7 @@ import java.util.*;
 import java.io.IOException;
 
 import com.app.model.user.Role;
-import com.app.model.user.User;
+import com.app.model.user.Users;
 
 @Service
 public class TokenUtil {
@@ -40,11 +40,11 @@ public class TokenUtil {
             .parseClaimsJws(token)
             .getBody();
 
-        User user = new User();
-        user.setUserId( (String)claims.get("userId"));
-        user.setRole(Role.valueOf((String)claims.get("role")));
-        if (user.getUserId() != null && user.getRole() != null) {
-            return new TokenUser(user);
+        Users users = new Users();
+        users.setUserId( (String)claims.get("userId"));
+        users.setRole(Role.valueOf((String)claims.get("role")));
+        if (users.getUserId() != null && users.getRole() != null) {
+            return new TokenUser(users);
         } else {
             return null;
         }
@@ -54,12 +54,12 @@ public class TokenUtil {
       return createTokenForUser(tokenUser.getUser());
     }
 
-    public String createTokenForUser(User user) {
+    public String createTokenForUser(Users users) {
       return Jwts.builder()
         .setExpiration(new Date(System.currentTimeMillis() + VALIDITY_TIME_MS))
-        .setSubject(user.getFullName())
-        .claim("userId", user.getUserId())
-        .claim("role", user.getRole().toString())
+        .setSubject(users.getFullName())
+        .claim("userId", users.getUserId())
+        .claim("role", users.getRole().toString())
         .signWith(SignatureAlgorithm.HS256, secret)
         .compact();
     }

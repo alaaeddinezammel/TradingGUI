@@ -11,7 +11,7 @@ import org.springframework.security.authentication.AuthenticationServiceExceptio
 import org.springframework.stereotype.Service;
 
 import com.app.model.user.Role;
-import com.app.model.user.User;
+import com.app.model.user.Users;
 import com.app.repo.UserRepo;
 
 import java.util.Optional;
@@ -26,10 +26,10 @@ public class UserDetailsService implements org.springframework.security.core.use
     @Override
     public final TokenUser loadUserByUsername(String username) throws UsernameNotFoundException, DisabledException {
 
-        final User user = userRepo.findOneByUserId(username).orElseThrow(() -> new UsernameNotFoundException("User not found"));
+        final Users users = userRepo.findOneByUserId(username).orElseThrow(() -> new UsernameNotFoundException("User not found"));
         TokenUser currentUser;
-        if (user.isActive() == true){
-            currentUser = new TokenUser(user);
+        if (users.isActive() == true){
+            currentUser = new TokenUser(users);
         }
         else{
             throw new DisabledException("User is not activated (Disabled User)");

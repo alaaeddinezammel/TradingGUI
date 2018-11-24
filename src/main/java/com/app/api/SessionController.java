@@ -37,15 +37,15 @@ public class SessionController {
     @RequestMapping(value = "/session", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public SessionResponse newSession(@RequestBody Login login, HttpServletRequest request, HttpServletResponse response) {
-        User user = userRepo.findOneByUserIdAndPassword(login.getUsername(), login.getPassword()).orElse(null);
+        Users users = userRepo.findOneByUserIdAndPassword(login.getUsername(), login.getPassword()).orElse(null);
         SessionResponse resp = new SessionResponse();
         SessionItem sessionItem = new SessionItem();
-        if (user != null){
+        if (users != null){
             sessionItem.setToken("xxx.xxx.xxx");
-            sessionItem.setUserId(user.getUserId());
-            sessionItem.setFirstName(user.getFirstName());
-            sessionItem.setLastName(user.getLastName());
-            sessionItem.setEmail(user.getEmail());
+            sessionItem.setUserId(users.getUserId());
+            sessionItem.setFirstName(users.getFirstName());
+            sessionItem.setLastName(users.getLastName());
+            sessionItem.setEmail(users.getEmail());
             //sessionItem.setRole(user.getRole());
 
             resp.setOperationStatus(ResponseStatusEnum.SUCCESS);

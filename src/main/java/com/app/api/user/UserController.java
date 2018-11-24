@@ -28,21 +28,21 @@ public class UserController {
 
 		String loggedInUserId = userService.getLoggedInUserId();
 
-		User user;
+		Users users;
 		boolean provideUserDetails = false;
 
 		if (Strings.isNullOrEmpty(userIdParam)) {
 			provideUserDetails = true;
-			user = userService.getLoggedInUser();
+			users = userService.getLoggedInUser();
 		}
 		else if (loggedInUserId.equals(userIdParam)) {
 			provideUserDetails = true;
-			user = userService.getLoggedInUser();
+			users = userService.getLoggedInUser();
 		}
 		else {
 			//Check if the current user is superuser then provide the details of requested user
 			provideUserDetails = true;
-			user = userService.getUserInfoByUserId(userIdParam);
+			users = userService.getUserInfoByUserId(userIdParam);
 		}
 
 		UserResponse resp = new UserResponse();
@@ -53,15 +53,15 @@ public class UserController {
             resp.setOperationStatus(ResponseStatusEnum.NO_ACCESS);
 			resp.setOperationMessage("No Access");
 		}
-		resp.setData(user);
+		resp.setData(users);
 		return resp;
 	}
 
 
 	@ApiOperation(value = "Add new user", response = OperationResponse.class)
 	@RequestMapping(value = "/user", method = RequestMethod.POST, produces = {"application/json"})
-	public OperationResponse addNewUser(@RequestBody User user, HttpServletRequest req) {
-		boolean userAddSuccess = userService.addNewUser(user);
+	public OperationResponse addNewUser(@RequestBody Users users, HttpServletRequest req) {
+		boolean userAddSuccess = userService.addNewUser(users);
 		OperationResponse resp = new OperationResponse();
 		if (userAddSuccess==true){
       resp.setOperationStatus(ResponseStatusEnum.SUCCESS);
