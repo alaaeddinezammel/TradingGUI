@@ -1,0 +1,23 @@
+okey kan fama prob
+
+nasn3 base jdida heroku postgres wn7ot 
+config htha 
+
+#spring.datasource.url=${DATABASE_URL}
+spring.jpa.show-sql=false
+spring.jpa.generate-ddl=true
+spring.jpa.hibernate.ddl-auto=update
+#spring.jpa.properties.hibernate.default_schema=demo
+spring.datasource.driverClassName=org.postgresql.Driver
+spring.datasource.maxActive=10
+spring.datasource.maxIdle=5
+spring.datasource.minIdle=2
+spring.datasource.initialSize=5
+spring.datasource.removeAbandoned=true
+
+wena ndeployi fel commande 
+
+heroku push origin master 
+
+
+wt3awed tinserli schema wll data  see tuto heroku 
