@@ -1,4 +1,4 @@
-**spring angular app for consulting old trades
+**spring angular app for consulting old trades**
 
 **to run :
 
