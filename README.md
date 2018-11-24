@@ -1,6 +1,6 @@
 **spring angular app for consulting old trades**
 
-**to run :
+**to run :**
 
 clone 
 
@@ -9,23 +9,23 @@ mvn clean install
 run as spring boot app or java -jar ./target/app-1.0.0.jar on cmd 
 
 
-**to try on heroku open: 
+**to try on heroku open: **
 
 https://peaceful-oasis-51217.herokuapp.com/#/login  and try login with alaa/alaa as credentials
 
 
-**some screens:
+**some screens:**
 
-**Login:
+**Login:**
 
 ![alt text](https://raw.githubusercontent.com/alaaeddinezammel/TradingGUI/master/Cap1.PNG)
 
 
-**Dashboard:
+**Dashboard:**
 
 ![alt text](https://raw.githubusercontent.com/alaaeddinezammel/TradingGUI/master/Cap2.PNG)
 
 
-**Orders view:
+**Orders view:**
 
 ![alt text](https://raw.githubusercontent.com/alaaeddinezammel/TradingGUI/master/Cap3.PNG)
